@@ -21,6 +21,43 @@ public class Location {
         this.yaw = yaw;
     }
 
+    public Location(Object l) {
+        org.bukkit.Location loc = (org.bukkit.Location) l;
+        object = loc;
+        this.x = loc.getX();
+        this.y = loc.getY();
+        this.z = loc.getZ();
+        this.world = new World(loc.getWorld());
+        this.pitch = loc.getPitch();
+        this.yaw = loc.getYaw();
+
+    }
+
+    public Location add(double addX, double addY, double addZ, float addYaw, float addPitch) {
+        setX(getX() + addX);
+        setY(getY() + addY);
+        setZ(getZ() + addZ);
+        setYaw(getYaw() + addYaw);
+        setPitch(getPitch() + addPitch);
+        return this;
+    }
+
+    public Location add(double addX, double addY, double addZ, float addYaw) {
+        return add(addX, addY, addZ, 0);
+    }
+
+    public Location add(double addX, double addY, double addZ) {
+        return add(addX, addY, addZ, 0, 0);
+    }
+
+    public Location add(double addX, double addY) {
+        return add(addX, addY, 0, 0, 0);
+    }
+
+    public Location add(double addX) {
+        return add(addX, 0, 0, 0, 0);
+    }
+
     public com.arrayprolc.surge.exclusive.types.location.World getWorld() {
         return world;
     }

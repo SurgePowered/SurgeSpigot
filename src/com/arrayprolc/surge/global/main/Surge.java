@@ -15,10 +15,14 @@ public class Surge {
     private static Surge instance;
     private static boolean enabled = false;
     private WrappedPlugin plugin;
-    private ArrayList<UniversalPlugin> plugins = new ArrayList<UniversalPlugin>();
+    private static ArrayList<UniversalPlugin> plugins = new ArrayList<UniversalPlugin>();
 
     public static Surge getInstance() {
         return instance;
+    }
+
+    public static ArrayList<UniversalPlugin> getPlugins() {
+        return plugins;
     }
 
     public Surge() {
@@ -40,6 +44,7 @@ public class Surge {
         if (getGamePlatform() == Platform.SPIGOT) {
             try {
                 SpigotEvents.registerEvents(this, plugin);
+                System.out.println("[Surge] Registering events for Spigot!");
             } catch (InvalidPlatformException e) {
                 System.out.println(e.getMessage());
                 System.out.println("[FATAL] Shutting down.");
@@ -56,7 +61,7 @@ public class Surge {
         return gamePlatform;
     }
 
-    public void registerPlugin(UniversalPlugin plugin) {
+    public static void registerPlugin(UniversalPlugin plugin) {
         plugins.add(plugin);
     }
 

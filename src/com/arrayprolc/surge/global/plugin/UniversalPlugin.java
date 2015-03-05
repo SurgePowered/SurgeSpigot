@@ -15,7 +15,7 @@ public abstract class UniversalPlugin {
 
     public abstract void getListeners();
     
-    public abstract void getCommands(ArrayList<Command> list);
+    public abstract ArrayList<Command> getCommands(ArrayList<Command> list);
     
     public abstract String getModID();
     

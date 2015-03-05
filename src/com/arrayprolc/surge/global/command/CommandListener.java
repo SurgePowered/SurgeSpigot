@@ -4,6 +4,6 @@ import com.arrayprolc.surge.exclusive.listener.sender.CommandSender;
 
 public abstract class CommandListener {
     
-    public abstract void handleCommand(CommandSender sender, Command command);
+    public abstract boolean handleCommand(CommandSender sender, Command command, String[] args);
 
 }

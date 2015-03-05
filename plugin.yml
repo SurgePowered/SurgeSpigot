@@ -1,3 +1,5 @@
 name: Surge
 version: 0.0.1
 main: com.arrayprolc.surge.exclusive.main.SurgeSpigot
+commands:
+    surge: 
